@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<configuration>
+
+	<appender name="consoleAppender"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<Pattern>%d{yyyy-MM-dd_HH:mm:ss.SSS} [QuironProject] [%5level ] %logger{36} - %msg %n</Pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+	</appender>
+
+	<appender name="dailyRollingFileAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<Pattern>%d{yyyy-MM-dd_HH:mm:ss.SSS} [QuironProject] [%thread] %-5level %logger{36} - %msg %n</Pattern>
+		</encoder>
+	</appender>
+
+	<appender name="serverDailyRollingFileAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+		<encoder>
+			<Pattern>%d{yyyy-MM-dd_HH:mm:ss.SSS} [QuironProject] [%thread] %-5level %logger{36} - %msg %n</Pattern>
+		</encoder>
+	</appender>
+
+	<root>
+		<level value="DEBUG" />
+		<appender-ref ref="consoleAppender" />
+	</root>
+
+</configuration>

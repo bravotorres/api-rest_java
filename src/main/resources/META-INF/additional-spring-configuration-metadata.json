@@ -1,0 +1,47 @@
+{"properties": [
+  {
+    "name": "storage.path",
+    "type": "java.lang.String",
+    "description": "A description for 'storage.path'"
+  },
+  {
+    "name": "app.name",
+    "type": "java.lang.String",
+    "description": "A description for 'app.name'"
+  },
+  {
+    "name": "app.version",
+    "type": "java.lang.String",
+    "description": "A description for 'app.version'"
+  },
+  {
+    "name": "jwt.secret",
+    "type": "java.lang.String",
+    "description": "A description for 'jwt.secret'"
+  },
+  {
+    "name": "jwt.expires.segs",
+    "type": "java.lang.String",
+    "description": "A description for 'jwt.expires.segs'"
+  },
+  {
+    "name": "db.url",
+    "type": "java.lang.String",
+    "description": "A description for 'db.url'"
+  },
+  {
+    "name": "db.user",
+    "type": "java.lang.String",
+    "description": "A description for 'db.user'"
+  },
+  {
+    "name": "db.pass",
+    "type": "java.lang.String",
+    "description": "A description for 'db.pass'"
+  },
+  {
+    "name": "storage.path",
+    "type": "java.lang.String",
+    "description": "A description for 'storage.path'"
+  }
+]}

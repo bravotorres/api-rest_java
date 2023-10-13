@@ -5,8 +5,8 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.ServletException;
-import javax.validation.UnexpectedTypeException;
+import jakarta.servlet.ServletException;
+import jakarta.validation.UnexpectedTypeException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

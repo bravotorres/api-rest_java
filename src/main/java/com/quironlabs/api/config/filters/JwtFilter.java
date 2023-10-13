@@ -2,11 +2,11 @@ package com.quironlabs.api.config.filters;
 
 import java.io.IOException;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +20,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 
 import com.quironlabs.api.utils.JwtUtils;
-import com.quironlabs.api.models.entities.AuthUser;
 
 
 @Component
@@ -107,13 +106,13 @@ public class JwtFilter extends OncePerRequestFilter {
 //        session.setAttribute("SPRING_SECURITY_CONTEXT", securityContext);
     }
 
-    private AuthUser getUserDetails(String token) {
-        String sub = jwtUtils.getSubject(token);
-
-        AuthUser user = new AuthUser(sub, "");
-
-        return user;
-    }
+//    private AuthUser getUserDetails(String token) {
+//        String sub = jwtUtils.getSubject(token);
+//
+//        AuthUser user = new AuthUser(sub, "");
+//
+//        return user;
+//    }
 
 
 //    @Override

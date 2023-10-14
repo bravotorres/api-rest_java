@@ -1,10 +1,10 @@
 FROM rhel9-openjdk17:1.0
 
-ENV PYTHONUNBUFFERED 1
+ENV ENVIRONMENT dev
 ENV WEBAPP_DIR /var/www/api
 
 # Configure work directory
-COPY . $WEBAPP_DIR
+COPY target/api-demo.jar $WEBAPP_DIR
 
 # Configure user and group
 # RUN useradd api-rest
@@ -14,10 +14,13 @@ WORKDIR $WEBAPP_DIR
 
 # VOLUME $WEBAPP_DIR/storage
 
-# Install Python environment dependencies.
-RUN pip3 install pip setuptools && \
-    pip3 install -r resources/requirements.txt
-
 EXPOSE 8080/tcp
 
-CMD ["python", "main.py"]
+CMD [ \
+	"java", \
+	# "-javaagent:<agent-path>/dd-java-agent.jar", \
+	"-Xms256m", \
+	"-Xmx320m", \
+	"-jar", \
+	"api-demo.jar" \
+]

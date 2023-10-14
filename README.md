@@ -1,10 +1,36 @@
 # Getting Started
 
-The project needs a envvironment variable named `ENVIRONMENT` with these values `{'dev', 'qa', 'prod'}` depending on the type of environment to deploy the project.
+The project needs a environment variable named `ENVIRONMENT` with these values `{'dev', 'qa', 'prod'}` depending on the type of environment to deploy the project.
 
 - Alternatively, you can run the following command to deploy the jar app.
 ```shell
 $ java -DENVIRONMENT=dev -jar target/api-demo.jar
+```
+
+## Docker:
+### Backend Image: RedHat 9
+
+- See details in the script `Docker/docker_rhel9-openjdk17.sh`
+
+```bash
+$ docker pull registry.access.redhat.com/ubi9/ubi-micro:9.2-15.1696515526
+```
+
+
+### Database Image: Oracle 18.4
+
+- See details in the script `Docker/docker_oracle-db.sh`
+
+```bash
+$ docker pull container-registry.oracle.com/database/express:18.4.0-xe
+```
+
+### Trivy: Docker image verification
+
+- Run this script to verify a docker image:
+
+```bash
+$ docker run -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image registry.access.redhat.com/ubi9/ubi-micro:9.2-15.1696515526
 ```
 
 

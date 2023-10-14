@@ -1,23 +1,17 @@
-/*
- * Users table to manage access to API
- * Default user:
- * 		       username: quiron
- * 		   password_raw: esteganografia_01+
- * 		password_bcrypt: $2a$10$b1p96SYC4NAr6uUBVgCXSu9v6qFX0Qc/aPSKD03pLNGT/hoN7KtUu
- */
-drop table users;
-create table users (
-	id serial primary key,
-	fullname varchar(128),
-	email varchar(256),
-	username varchar(128),
-	passwd varchar(512),
-	is_active boolean not null default false,
-	created_at timestamp default now()
-);
 
-insert into users(fullname, email, username, passwd, is_Active) values
-	('Alejandro Bravo', 'bravotorres.alejandro@gmail.com', 'quiron', '$2a$10$b1p96SYC4NAr6uUBVgCXSu9v6qFX0Qc/aPSKD03pLNGT/hoN7KtUu', true);
+-- Procedure that returns a single result set (cursor)
+   CREATE OR REPLACE FUNCTION show_cities() RETURNS refcursor AS $$
+    DECLARE
+      ref refcursor;                                                     -- Declare a cursor variable
+    BEGIN
+      OPEN ref FOR SELECT city, state FROM cities;   -- Open a cursor
+      RETURN ref;                                                       -- Return the cursor to the caller
+    END;
+    $$ LANGUAGE plpgsql;
+ 
+
+
+
 
 
 CREATE OR REPLACE FUNCTION login_info(_username varchar, _password varchar, ref out refcursor) AS $$

@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import javax.crypto.SecretKey;
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

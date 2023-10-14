@@ -1,9 +1,11 @@
 package com.quironlabs.api.config.interceptors;
 
+
 import java.util.Enumeration;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -15,11 +17,9 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoggerInterceptor implements HandlerInterceptor {
     private static final Logger logger = LoggerFactory.getLogger(LoggerInterceptor.class);
 
-    public boolean preHandled(HttpServletRequest request, HttpServletResponse response, Object handler)
-            throws Exception {
+    public boolean preHandled(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-        logger.info("[preHandle] [{}] [{}] {} {}", request, request.getMethod(), request.getRequestURI(),
-                getParameters(request));
+        logger.info("[preHandle] [{}] [{}] {} {}", request, request.getMethod(), request.getRequestURI(), getParameters(request));
 
         return true;
     }

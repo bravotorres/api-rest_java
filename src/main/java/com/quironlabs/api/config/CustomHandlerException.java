@@ -1,12 +1,13 @@
 package com.quironlabs.api.config;
 
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.servlet.ServletException;
-import jakarta.validation.UnexpectedTypeException;
+import javax.servlet.ServletException;
+import javax.validation.UnexpectedTypeException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,12 +51,10 @@ public class CustomHandlerException {
      * Handle Exceptions to response a HTTP_400_BAD_REQUEST error in custom format.
      * 
      * @param e Exception to Handle.
-     * @return <code>ResponseEntity&#60BadRequestResponse&#62</code> with normalized format.
+     * @return <code>ResponseEntity&#60BadRequestResponse&#62</code> with normalized
+     *         format.
      */
-    @ExceptionHandler(
-        {BindException.class, BadRequestException.class, HttpMessageNotReadableException.class,
-            UnexpectedTypeException.class, HttpRequestMethodNotSupportedException.class}
-    )
+    @ExceptionHandler({ BindException.class, BadRequestException.class, HttpMessageNotReadableException.class, UnexpectedTypeException.class, HttpRequestMethodNotSupportedException.class })
     public ResponseEntity<BadRequestResponse> handleBadRequestExceptions(Exception e) {
 
         List<String> details = new ArrayList<>();
@@ -84,12 +83,10 @@ public class CustomHandlerException {
      * Handle Exceptions to response a HTTP_401_UNAUTHORIZED error in custom format.
      * 
      * @param e Exception to Handle.
-     * @return <code>ResponseEntity&#60UnauthorizedResponse&#62</code> with normalized format.
+     * @return <code>ResponseEntity&#60UnauthorizedResponse&#62</code> with
+     *         normalized format.
      */
-    @ExceptionHandler(
-        {JwtException.class, ExpiredJwtException.class, UnauthorizedException.class, ServletException.class,
-            AuthenticationException.class}
-    )
+    @ExceptionHandler({ JwtException.class, ExpiredJwtException.class, UnauthorizedException.class, ServletException.class, AuthenticationException.class })
     public ResponseEntity<UnauthorizedResponse> handleUnauthorizedExceptions(Exception e) {
         List<Object> details = new ArrayList<>();
         String message;
@@ -122,9 +119,10 @@ public class CustomHandlerException {
      * Handle Exceptions to response a HTTP_403_FORBIDDEN error in custom format.
      * 
      * @param e Exception to Handle.
-     * @return <code>ResponseEntity&#60ForbiddenResponse&#62</code> with normalized format.
+     * @return <code>ResponseEntity&#60ForbiddenResponse&#62</code> with normalized
+     *         format.
      */
-    @ExceptionHandler({ForbiddenException.class})
+    @ExceptionHandler({ ForbiddenException.class })
     public ResponseEntity<ForbiddenResponse> handleForbiddenExceptions(Exception e) {
         List<Object> details = new ArrayList<>();
 
@@ -140,9 +138,10 @@ public class CustomHandlerException {
      * Handle Exceptions to response a HTTP_404_NOT_FOUND error in custom format.
      * 
      * @param e Exception to Handle.
-     * @return <code>ResponseEntity&#60NotFoundResponse&#62</code> with normalized format.
+     * @return <code>ResponseEntity&#60NotFoundResponse&#62</code> with normalized
+     *         format.
      */
-    @ExceptionHandler({NotFoundException.class})
+    @ExceptionHandler({ NotFoundException.class })
     public ResponseEntity<NotFoundResponse> handleNotFoundExceptions(Exception e) {
 
         List<String> details = new ArrayList<>();
@@ -155,12 +154,14 @@ public class CustomHandlerException {
     }
 
     /**
-     * Handle Exceptions to response a HTTP_500_INTERNAL_SERVER_ERROR in custom format.
+     * Handle Exceptions to response a HTTP_500_INTERNAL_SERVER_ERROR in custom
+     * format.
      * 
      * @param e Exception to Handle.
-     * @return <code>ResponseEntity&#60InternalServerErrorResponse&#62</code> with normalized format.
+     * @return <code>ResponseEntity&#60InternalServerErrorResponse&#62</code> with
+     *         normalized format.
      */
-    @ExceptionHandler({Exception.class, NullPointerException.class})
+    @ExceptionHandler({ Exception.class, NullPointerException.class })
     public ResponseEntity<InternalServerErrorResponse> handleAnotherExceptions(Exception e) {
 
         logger.info("Type of Excption: {}", e.getClass());
@@ -201,5 +202,4 @@ public class CustomHandlerException {
 
         return errors;
     }
-
 }

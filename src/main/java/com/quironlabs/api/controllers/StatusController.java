@@ -26,13 +26,14 @@ public class StatusController {
     @GetMapping("/status")
     public ResponseEntity<?> getStatus() {
         String appName = env.getProperty("spring.application.name");
-        String environ = env.getProperty("STAGE");
+        String environ = env.getProperty("ENVIRONMENT");
         
         // Additional Data
         Map<String, Object> options = new HashMap<>();
         
          options.put("port", env.getProperty("server.port", ""));
          options.put("app_name", appName);
+         options.put("app_version", env.getProperty("app.version", ""));
          options.put("env", environ);
         // options.put("build", env.getProperty("BUILD_NUMBER", ""));
         // options.put("buildId", env.getProperty("BUILD_ID", ""));

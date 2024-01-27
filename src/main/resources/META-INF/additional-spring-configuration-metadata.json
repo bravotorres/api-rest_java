@@ -5,14 +5,14 @@
     "description": "A description for 'storage.path'"
   },
   {
-    "name": "app.name",
-    "type": "java.lang.String",
-    "description": "A description for 'app.name'"
-  },
-  {
     "name": "app.version",
     "type": "java.lang.String",
     "description": "A description for 'app.version'"
+  },
+  {
+    "name": "app.name",
+    "type": "java.lang.String",
+    "description": "A description for 'app.name'"
   },
   {
     "name": "jwt.secret",

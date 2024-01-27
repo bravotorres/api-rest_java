@@ -16,19 +16,23 @@ import org.springframework.web.servlet.ModelAndView;
 @Component
 public class LoggerInterceptor implements HandlerInterceptor {
     private static final Logger logger = LoggerFactory.getLogger(LoggerInterceptor.class);
-
-    public boolean preHandled(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+            throws Exception {
 
         logger.info("[preHandle] [{}] [{}] {} {}", request, request.getMethod(), request.getRequestURI(), getParameters(request));
 
         return true;
     }
 
+    @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
 
         logger.info("[postHandle][{}]", request);
     }
 
+    @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         if (ex != null) {
             ex.printStackTrace();
